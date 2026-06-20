@@ -6,49 +6,63 @@
 class Populy:
     """**Класс популяции**"""
 
+
     def __init__(self):
         """**Обьявляем переменные**
         
         populy - количество особей в популяции (целое число)"""
+
+
         self.populy = 0
     
     def add_organizm(self):
         """**Добавляем особь в популяцию**"""
+
+
         self.populy += 1
 
     def del_organizn(self):
         """**Убираем особь из популяции**"""
+
+
         self.populy -= 1
 
 
 
 class Organism:
     """**Базовывый класс**"""
+
+
     def __init__(self, name: str, energy: int):
         """**Обьявляем переменные**
         
         name - имя обьекта (строка)
         energy - энергия (целое число)"""
+
+
         self.name = name
         self.energy = energy
-    
+
+
     def eat(self, food_energy: int):
         """**Базовая функция еды**
 
         Принимаем число, добавляем его к энергии и выводим
         сообщение."""
+
+    
         self.energy += food_energy
         print(f"{self.name} получает {food_energy} энергии.")
-    
+
+
     def is_alive(self) -> bool:
         """**Проверка на жизнь**
         
         Если энергия больше нуля - существо живо, 
         если меньше или равна - мертво"""
+
+    
         return self.energy > 0
-
-
-        
 
 
 class Plant(Organism):
@@ -56,6 +70,8 @@ class Plant(Organism):
     
     Ничем не отличается от бащового, 
     но для безопасности вынесен отдельно"""
+
+
     def __init__(self, name, energy):
         super().__init__(name, energy)
 
@@ -64,18 +80,28 @@ class Animal(Organism):
     """**Класс животный**
     
     Добавлен параметр straight - сила (целое число)"""
+
+
     def __init__(self, name, energy, straight):
         super().__init__(name, energy)
         self.straight = straight
 
+
 class Herbivore(Animal):
     """**Класс травоядные**"""
+
+
     def __init__(self, name, energy, straight):
         """**Опьявляем те же переменные, что и у Animal**"""
+
+
         super().__init__(name, energy, straight)
+
 
     def eat(self, food:Plant):
         """**Функция поедания растений**"""
+
+
         #Если растение живо:
         if food.is_alive:
 
@@ -103,27 +129,35 @@ class Herbivore(Animal):
                 #Выводим информацию на экран
                 print(f"{self.name} получает {self.straight} энергии.")
                 print(f"{food.name} теряет {self.straight} энергии.")
+
         #Иначе (ежа мертва) выводим сообщение:
         else:
             print(f"{food.name} мертв(а)")
-        
-
 
 
 class Predator(Animal):
     """**Класс хищников**
     
     (Предопределение для отсутстви)"""
+
+
     def __init__(self, name, energy, straight):
         """**То же, что и у животных**"""
+
+
         super().__init__(name, energy, straight)
+
 
 class Predator(Animal):
     """**Класс хищников**
 
     Уже действительная часть"""
+
+
     def __init__(self, name, energy, straight):
         """**То же, что и у предопределения**"""
+
+    
         super().__init__(name, energy, straight)
 
 
@@ -132,6 +166,7 @@ class Predator(Animal):
 
         Вносится обьект victim класс Predator - другой хищник
         который выступает в роли цели работающего обьекта"""
+
 
         #Если обьект жив:
         if vict.is_alive():
@@ -185,21 +220,25 @@ class Predator(Animal):
                     #Выводим информацмю на экран:
                     print(f"{self.name} получает {vict.energy} энергии.")
                     print(f"{vict.name} умирает.")
+
         #Иначе (цель мертва) выводим сообщение:
         else:
             print(f"{vict.name} мертв(а).")
-    
+
+
     def eat(self, vict:Herbivore):
         """**Функция поедания (травоядного)**
         
         Вносится обьект victim класс Herbivore - травоядное
         который выступает в роли цели работающего обьекта"""
 
-            #Обьект - тот обьект, что исполняет функцию
-            #Цель - тот обьект, над которым исполняют функцию.
+
+        #Обьект - тот обьект, что исполняет функцию
+        #Цель - тот обьект, над которым исполняют функцию.
 
         #Если обьект жив:
         if vict.is_alive():
+
             #Если сила цели больше силы обьекта:
             if vict.straight > self.straight:
                 #Выводим сообщение
@@ -217,7 +256,7 @@ class Predator(Animal):
                     #Выводим информацию на экран
                     print(f"{self.name} получает {self.straight} энергии.")
                     print(f"{vict.name} теряет {self.straight} энергии.")
-                    
+
                 #Иначе (энергия цели меньше/равна силе обьекта):
                 else:
                     #Энергии обьекта прибавляется энергия цели
@@ -227,6 +266,7 @@ class Predator(Animal):
                     #Выводим информацию на экран:
                     print(f"{self.name} получает {vict.energy} энергии.")
                     print(f"{vict.name} умирает.")
+
         #Иначе (цель мертва) выводим сообщение:
         else:
             print(f"{vict.name} мертв(а).")

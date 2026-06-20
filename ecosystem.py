@@ -9,23 +9,33 @@ from organism import Plant, Herbivore, Predator, Populy
 
 class Ecosystem:
     """**Класс экосистемы**"""
+
+
     def __init__(self):
-        #Список обьектов
+        """**Обьявление переменных**
+        
+        organisms - список всех организмов (список)"""
+
+
         self.organisms = []
 
 
     def add_organism(self, organism, population:Populy):
-        #Добавляем новый обьект
+        """**Добавлениеорганизма**"""
+
+    
         self.organisms.append(organism)
         population.add_organizm()
 
 
-    #Функция симуляции взаимодействий обьектов
+
     def simulate_day(self):
+        """**Функция симуляции взаимодействий обьектов**"""
+
 
         #Проходимся по списку
         for org in self.organisms:
-            
+
             #Если проверяемый обьект жив:
             if org.is_alive():
 
@@ -56,7 +66,7 @@ class Ecosystem:
 
                 #Если класс обьекта - 
                 elif tp == "<class 'organism.Herbivore'>":
-                    
+
                     #Проходимся снова по списку
                     for vict in self.organisms:
 
@@ -72,10 +82,12 @@ class Ecosystem:
                         if pos1 and pos2:
                             #Первый обьект пытается сьест второй
                             org.eat(vict)
+
                 #Иначе:
                 else:
                     #Просто даем обьекту 10 энергии
                     org.eat(10)
+
             #Иначе - выводим сообщение:          
             else:
                 print(f"{org.name} мёртв.")
