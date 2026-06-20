@@ -12,27 +12,45 @@ class Ecosystem:
 
 
     def __init__(self):
+<<<<<<< HEAD
         """**Обьявляем переменные**
         
         organisms - список организмов"""
+=======
+        """**Обьявление переменных**
+        
+        organisms - список всех организмов (список)"""
+>>>>>>> features/food-chain2
 
 
         self.organisms = []
 
 
     def add_organism(self, organism, population:Populy):
+<<<<<<< HEAD
         """**Функция добавления**
         """
 
         
+=======
+        """**Добавлениеорганизма**"""
+
+    
+>>>>>>> features/food-chain2
         self.organisms.append(organism)
         population.add_organizm()
 
 
+<<<<<<< HEAD
     def simulate_day(self):
         """**Симуляция дня**
         
         Симуляция взаимодействия обьектов"""
+=======
+
+    def simulate_day(self):
+        """**Функция симуляции взаимодействий обьектов**"""
+>>>>>>> features/food-chain2
 
 
         #Проходимся по списку
