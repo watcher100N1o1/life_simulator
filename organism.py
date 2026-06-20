@@ -14,22 +14,15 @@ class Populy:
 
 
         self.populy = 0
-<<<<<<< HEAD
 
 
-=======
-    
->>>>>>> features/food-chain2
     def add_organizm(self):
         """**Добавляем особь в популяцию**"""
 
 
         self.populy += 1
 
-<<<<<<< HEAD
 
-=======
->>>>>>> features/food-chain2
     def del_organizn(self):
         """**Убираем особь из популяции**"""
 
@@ -59,11 +52,7 @@ class Organism:
         Принимаем число, добавляем его к энергии и выводим
         сообщение."""
 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> features/food-chain2
         self.energy += food_energy
         print(f"{self.name} получает {food_energy} энергии.")
 
@@ -74,11 +63,7 @@ class Organism:
         Если энергия больше нуля - существо живо, 
         если меньше или равна - мертво"""
 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> features/food-chain2
         return self.energy > 0
 
 
@@ -174,11 +159,7 @@ class Predator(Animal):
     def __init__(self, name, energy, straight):
         """**То же, что и у предопределения**"""
 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> features/food-chain2
         super().__init__(name, energy, straight)
 
 
@@ -191,11 +172,7 @@ class Predator(Animal):
 
         #Если обьект жив:
         if vict.is_alive():
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> features/food-chain2
             #Обьект - тот обьект, что исполняет функцию
             #Цель - тот обьект, над которым исполняют функцию.
 
@@ -222,11 +199,7 @@ class Predator(Animal):
                     #Выводим информацию на экран
                     print(f"{vict.name} получает {self.energy} энергии.")
                     print(f"{self.name} умирает.")
-<<<<<<< HEAD
 
-=======
-                    
->>>>>>> features/food-chain2
             #Иначе (сила обьекта больше.равна силе цели):
             else:
                 #Если энергия цели больше силы обьекта:
@@ -239,11 +212,7 @@ class Predator(Animal):
                     #Выводим информацию на экран:
                     print(f"{self.name} теряет {vict.straight} энергии.")
                     print(f"{vict.name} получает {vict.straight} энергии.")
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> features/food-chain2
                 #Иначе (энергия цели меньше/равна силе обьекта)
                 else:
                     #Энергии обьекта прибавляем энергию цели
@@ -276,16 +245,10 @@ class Predator(Animal):
             if vict.straight > self.straight:
                 #Выводим сообщение
                 print(f"У {self.name} охота не удалась")
-<<<<<<< HEAD
 
             #Иначе (сила цели меньше/равна силе обьекта)
             else:
 
-=======
-                    
-            #Иначе (сила цели меньше/равна силе обьекта)
-            else:
->>>>>>> features/food-chain2
                 #Если энергия цели больше силы обьекта:
                 if vict.energy > self.straight:
 
@@ -299,10 +262,7 @@ class Predator(Animal):
 
                 #Иначе (энергия цели меньше/равна силе обьекта):
                 else:
-<<<<<<< HEAD
 
-=======
->>>>>>> features/food-chain2
                     #Энергии обьекта прибавляется энергия цели
                     self.energy += vict.energy
                     #Энергия цели равна 0 (цель умирает):
@@ -313,14 +273,4 @@ class Predator(Animal):
 
         #Иначе (цель мертва) выводим сообщение:
         else:
-<<<<<<< HEAD
             print(f"{vict.name} мертв(а).")
-=======
-            print(f"{vict.name} мертв(а).")
-
-
-
-
-
-    
->>>>>>> features/food-chain2
